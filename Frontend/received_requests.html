@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Received Requests</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="received_requests.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+	<header>
+		<div class="logo">Zakat App</div>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Received Payments</a></li>
+				<li><a href="#">Received Requests</a></li>
+				<li><a href="#">Zakatable People</a></li>
+				<li><a href="#">Zakatable Foundations</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Sign Out</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="container">
+	<h1>Pending Requests</h1>
+	
+	<table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Serial</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>NID Number</th>
+                <th>Phone</th>
+                <th>Monthly Income</th>
+                <th>Requested On</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>XYZ</td>
+                <td>Bashundhara R/A, Block C, Dhaka, BD</td>
+                <td>123456ABCDEF</td>
+                <td contenteditable="true">+880 1234567891</td>
+                <td contenteditable="true">10000</td>
+                <td contenteditable="true">2022-02-20</td>
+                <td><button type="button" class="btn btn-danger btn-sm delete-row"><i class="fa fa-trash"></i></button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>XYZ</td>
+                <td>Bashundhara R/A, Block C, Dhaka, BD</td>
+                <td>123456ABCDEF</td>
+                <td contenteditable="true">+880 1234567891</td>
+                <td contenteditable="true">10000</td>
+                <td contenteditable="true">2022-02-20</td>
+                <td><button type="button" class="btn btn-danger btn-sm delete-row"><i class="fa fa-trash"></i></button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>XYZ</td>
+                <td>Bashundhara R/A, Block C, Dhaka, BD</td>
+                <td>123456ABCDEF</td>
+                <td contenteditable="true">+880 1234567891</td>
+                <td contenteditable="true">10000</td>
+                <td contenteditable="true">2022-02-20</td>
+                <td><button type="button" class="btn btn-danger btn-sm delete-row"><i class="fa fa-trash"></i></button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>XYZ</td>
+                <td>Bashundhara R/A, Block C, Dhaka, BD</td>
+                <td>123456ABCDEF</td>
+                <td contenteditable="true">+880 1234567891</td>
+                <td contenteditable="true">10000</td>
+                <td contenteditable="true">2022-02-20</td>
+                <td><button type="button" class="btn btn-danger btn-sm delete-row"><i class="fa fa-trash"></i></button></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>XYZ</td>
+                <td>Bashundhara R/A, Block C, Dhaka, BD</td>
+                <td>123456ABCDEF</td>
+                <td contenteditable="true">+880 1234567891</td>
+                <td contenteditable="true">10000</td>
+                <td contenteditable="true">2022-02-20</td>
+                <td><button type="button" class="btn btn-danger btn-sm delete-row"><i class="fa fa-trash"></i></button></td>
+            </tr>
+            
+
+        </tbody>
+    </table>
+    <script>
+        const deleteButtons = document.querySelectorAll('.delete-row');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.closest('tr').remove();
+            });
+        });
+    </script>
+
+</div>
+
+<footer>
+	<div class="social-links">
+			<a href="#"><i class="fa fa-facebook-f"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-instagram"></i></a>
+			<a href="#"><i class="fa fa-linkedin-in"></i></a>
+		</div>
+		<div class="contact-info">
+			<h4>Contact Us</h4>
+			<p><i class="fa fa-map-marker-alt"></i> North South University, Dhaka, Bangladesh</p>
+			<p><i class="fa fa-phone"></i> +880 1852828239</p>
+			<p><i class="fa fa-envelope"></i> info@zakatwebsite.com</p>
+		</div>
+	</footer>
+</body>
+</html>
