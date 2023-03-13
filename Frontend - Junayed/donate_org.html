@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Website</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="donate_org.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+	<header>
+		<div class="logo">Zakat App</div>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a href="#">Calculator</a></li>
+				<li><a href="#">History</a></li>
+				<li><a href="#">Request</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#" class="active">Donate</a></li>
+				<li><a href="#">Sign Out</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="container">
+	<h1>Donate to an Organization</h1>
+	<form>
+		<input type="text" name="name" placeholder="Full Name" required>
+		<input type="text" name="address" placeholder="Address" required>
+		<input type="text" name="phone" placeholder="Phone Number" required>
+		<input type="text" name="job" placeholder="Job" required>
+		<input type="email" name="email" placeholder="Email Address" required>
+		<select name="organization" required>
+			<option value="">Select Organization</option>
+			<option value="USD">Islamic Foundation</option>
+			<option value="EUR">New Muslim Development</option>
+			<option value="GBP">My Islamic Question Center</option>
+		</select>
+		<input type="number" name="amount" placeholder="Donation Amount" required>
+		<input type="text" name="message" placeholder="Message" required>
+		<select name="currency" required>
+			<option value="">Select Currency</option>
+			<option value="USD">US Dollars</option>
+			<option value="EUR">Euro</option>
+			<option value="GBP">Taka</option>
+		</select>
+		<input type="submit" value="Donate Now">
+	</form>
+</div>
+
+<footer>
+	<div class="social-links">
+			<a href="#"><i class="fa fa-facebook-f"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-instagram"></i></a>
+			<a href="#"><i class="fa fa-linkedin-in"></i></a>
+		</div>
+		<div class="contact-info">
+			<h4>Contact Us</h4>
+			<p><i class="fa fa-map-marker-alt"></i> North South University, Dhaka, Bangladesh</p>
+			<p><i class="fa fa-phone"></i> +880 1852828239</p>
+			<p><i class="fa fa-envelope"></i> info@zakatwebsite.com</p>
+		</div>
+	</footer>
+</body>
+</html>
