@@ -1,80 +1,93 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Donate Centrally</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="donate_centrally.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+
 <body>
 	<header>
 		<div class="logo">
-			<img src="photos/logo.png"alt="Zakat Calculator Logo">
+			<img src="photos/logo.png" alt="Zakat Calculator Logo">
 		</div>
+		<!-- navbar -->
 		<nav>
-		  <ul>
-			<li><a href="landing.html">Home</a></li>
-		    <li><a href="profile.html">Profile</a></li>
-			<li><a href="calculator.html">Calculator</a></li>
-			<li><a href="about.html">About</a></li>
-		    <li><a href="payment-history.html">History</a></li>
-		    <li><a href="#">Request</a></li>
-		    <li>
-		    <div class="dropdown">
-			  <button class="dropbtn">Donate</button>
-			  <div class="dropdown-content">
-			  <a href="donate_centrally.html">Centrally</a>
-			  <a href="donate_org.html">To a Foundation</a>
-			  </div>
-			</div>
-		</li>
-		<li><a href="login.html">Sign Out</a></li>
-		  </ul>
+			<ul>
+				<li><a href="landing.html">Home</a></li>
+				<li><a href="calculator.html">Calculator</a></li>
+				<li>
+					<div class="dropdown">
+						<button class="dropbtn">Donate</button>
+						<div class="dropdown-content">
+							<a href="donate_centrally.html">Centrally</a>
+							<a href="donate_org.html">To a Foundation</a>
+						</div>
+					</div>
+				</li>
+				<li><a href="request_receiver.html">Request</a></li>
+				<li>
+					<div class="dropdown">
+						<button class="dropbtn">History</button>
+						<div class="dropdown-content">
+							<a href="payment-history.html">Payment</a>
+							<a href="finance-history.html">Finance</a>
+						</div>
+					</div>
+				</li>
+				<li><a href="profile.html">Profile</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="login.html">Sign Out</a></li>
+			</ul>
 		</nav>
+		<!-- navbar -->
 	</header>
 	<div class="container">
-	<h1>Donate to a Foundations</h1>
-	<form>
-		<input type="text" name="name" placeholder="Full Name" required>
-		<input type="text" name="address" placeholder="Address" required>
-		<input type="text" name="phone" placeholder="Phone Number" required>
-		<input type="text" name="job" placeholder="Job" required>
-		<input type="email" name="email" placeholder="Email Address" required>
-		<select name="organization" required>
-			<option value="">Select Organization</option>
-			<option value="USD">Islamic Foundation</option>
-			<option value="EUR">New Muslim Development</option>
-			<option value="GBP">My Islamic Question Center</option>
-		</select>
-		<input type="number" name="amount" placeholder="Donation Amount" required>
-		<input type="text" name="message" placeholder="Message" required>
-		<select name="currency" required>
-			<option value="">Select Currency</option>
-			<option value="USD">US Dollars</option>
-			<option value="EUR">Euro</option>
-			<option value="GBP">Taka</option>
-		</select>
-		<input type="submit" value="Donate Now">
-	</form>
-</div>
+		<h1>Donate to a Foundations</h1>
+		<form>
+			<input type="text" name="name" placeholder="Full Name" required>
+			<input type="text" name="address" placeholder="Address" required>
+			<input type="text" name="phone" placeholder="Phone Number" required>
+			<input type="text" name="job" placeholder="Job" required>
+			<input type="email" name="email" placeholder="Email Address" required>
+			<select name="organization" required>
+				<option value="">Select Organization</option>
+				<option value="USD">Islamic Foundation</option>
+				<option value="EUR">New Muslim Development</option>
+				<option value="GBP">My Islamic Question Center</option>
+			</select>
+			<input type="number" name="amount" placeholder="Donation Amount" required>
+			<input type="text" name="message" placeholder="Message" required>
+			<select name="currency" required>
+				<option value="">Select Currency</option>
+				<option value="USD">US Dollars</option>
+				<option value="EUR">Euro</option>
+				<option value="GBP">Taka</option>
+			</select>
+			<input type="submit" value="Donate Now">
+		</form>
+	</div>
 
-<footer>
-	<div class="container-f">
-		<div class="social-links">
+	<footer>
+		<div class="container-f">
+			<div class="social-links">
 				<a href="#"><i class="fa fa-facebook-f"></i></a>
 				<a href="#"><i class="fa fa-twitter"></i></a>
 				<a href="#"><i class="fa fa-instagram"></i></a>
 				<a href="#"><i class="fa fa-linkedin-in"></i></a>
 			</div>
 			<div class="contact-info">
-				
-		  <p><b>Contact Us</b></p>
+
+				<p><b>Contact Us</b></p>
 				<p><i class="fa fa-phone"></i> +880 1852828239</p>
 				<p><i class="fa fa-envelope"></i> info@zakatwebsite.com</p>
 			</div>
-		<p>&copy; 2023 Zakat Calculator. All rights reserved.</p>
-	  </div>
-		</footer>
+			<p>&copy; 2023 Zakat Calculator. All rights reserved.</p>
+		</div>
+	</footer>
 </body>
+
 </html>

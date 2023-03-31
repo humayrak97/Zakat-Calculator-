@@ -1,36 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Zakat Calculator</title>
+	<title>Calculator</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
   <link rel="stylesheet" type="text/css" href="calculator.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	
 </head>
 <body>
-	<!-- Navbar -->
-		<header>
-			<div class="logo">
-				<img src="photos/logo.png"alt="Zakat Calculator Logo">
-				</div>
-				  <nav>
-					  <ul>
-						  <li><a href="landing.html">Home</a></li>
-						  <li><a href="profile.html">Profile</a></li>
-						  <li><a href="calculator.html">Calculator</a></li>
-						  <li><a href="about.html">About</a></li>
-						  <li><a href="login.html">Sign Out</a></li>
-					  </ul>
-				  </nav>
-		</header> 
+
+	<header>
+		<div class="logo">
+			<img src="photos/logo.png" alt="Zakat Calculator Logo">
+		</div>
+			
+		<!-- navbar -->
+		<nav>
+			<ul>
+				<li><a href="landing.html">Home</a></li>
+				<li><a href="calculator.html">Calculator</a></li>
+				<li>
+					<div class="dropdown">
+						<button class="dropbtn">Donate</button>
+						<div class="dropdown-content">
+							<a href="donate_centrally.html">Centrally</a>
+							<a href="donate_org.html">To a Foundation</a>
+						</div>
+					</div>
+				</li>
+				<li><a href="request_receiver.html">Request</a></li>
+				<li>
+					<div class="dropdown">
+						<button class="dropbtn">History</button>
+						<div class="dropdown-content">
+							<a href="payment-history.html">Payment</a>
+							<a href="finance-history.html">Finance</a>
+						</div>
+					</div>
+				</li>
+				<li><a href="profile.html">Profile</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="login.html">Sign Out</a></li>
+			</ul>
+		</nav>
+	
+		<!-- navbar -->
+	</header>
 
 	<!-- Form -->
 	<div class="notebook">
 		<h1>Zakat Calculator</h1>
-		<form method="post" action="calculator.php">
+		<form>
 			<label for="input1">Savings (in TK):</label>
 			<input type="number" id="input1" name="input1">
 
