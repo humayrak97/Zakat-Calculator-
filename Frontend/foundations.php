@@ -46,14 +46,29 @@
 		<!-- navbar -->
 	</header>
 	<div class="container">
-		<h1>Send Zakat</h1>
-		<form>
-
-			<input type="number" name="amount" placeholder="Donation Amount" required>
-			<input type="text" name="message" placeholder="Message" required>
-
-			<input type="submit" value="Send Now">
-		</form>
+		<h1>Donate to a Foundation</h1>
+		<div class="foundation-list">
+			<div class="foundation-box" onclick="window.location.href='donate_org.html?org=Foundation A'">
+				<img src="photos/-a.jpg" alt="Foundation A Logo">
+				<h2>Foundation A</h2>
+			</div>
+			<div class="foundation-box" onclick="window.location.href='donate_org.html?org=Foundation B'">
+				<img src="photos/foundation-b.jpg" alt="Foundation B Logo">
+				<h2>Foundation B</h2>
+			</div>
+			<div class="foundation-box" onclick="window.location.href='donate_org.html?org=Foundation C'">
+				<img src="photos/foundation-c.jpg" alt="Foundation C Logo">
+				<h2>Foundation C</h2>
+			</div>
+			<div class="foundation-box" onclick="window.location.href='donate_org.html?org=Foundation D'">
+				<img src="photos/foundation-d.jpg" alt="Foundation D Logo">
+				<h2>Foundation D</h2>
+			</div>
+			<div class="foundation-box" onclick="window.location.href='donate_org.html?org=Foundation E'">
+				<img src="photos/foundation-e.jpg" alt="Foundation E Logo">
+				<h2>Foundation E</h2>
+			</div>
+		</div>
 	</div>
 
 	<footer>
