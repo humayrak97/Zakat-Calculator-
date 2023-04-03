@@ -12,8 +12,7 @@ body {
 	background-position: center;
 	font-family: Arial, sans-serif;
 	min-height: 100%;
-  display: flex;
-  flex-direction: column;
+	background-attachment: fixed;
 }
 
 /* NAVBAR starts*/
