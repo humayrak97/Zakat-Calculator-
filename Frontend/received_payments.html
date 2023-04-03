@@ -9,18 +9,38 @@
 </head>
 <body>
 	<header>
-		<div class="logo">Zakat App</div>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="received_payments.html">Received Payments</a></li>
-				<li><a href="received_requests.html">Received Requests</a></li>
-				<li><a href="receiving_people.html">Zakatable People</a></li>
-				<li><a href="receiving_foundations.html">Zakatable Foundations</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Sign Out</a></li>
-			</ul>
-		</nav>
+		<div class="logo">
+			<img src="photos/logo.png" alt="Zakat Calculator Logo">
+		</div>
+			<!-- navbar -->
+            <nav>
+                <ul>
+                    <li><a href="landing.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Received</button>
+                            <div class="dropdown-content">
+                                <a href="received_requests.html">Requests</a>
+                                <a href="received_payments.html">Payments</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Zakatabe</button>
+                            <div class="dropdown-content">
+                                <a href="receiving_people.html">People</a>
+                                <a href="receiving_foundations.html">Foundations</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="login.html">Sign Out</a></li>
+                </ul>
+            </nav>
+            <!-- navbar -->
+	</header>
 	</header>
 	<div class="container">
 	<h1>Received Payments</h1>
@@ -120,18 +140,21 @@
 </div>
 
 <footer>
-	<div class="social-links">
-			<a href="#"><i class="fa fa-facebook-f"></i></a>
-			<a href="#"><i class="fa fa-twitter"></i></a>
-			<a href="#"><i class="fa fa-instagram"></i></a>
-			<a href="#"><i class="fa fa-linkedin-in"></i></a>
-		</div>
-		<div class="contact-info">
-			<h4>Contact Us</h4>
-			<p><i class="fa fa-map-marker-alt"></i> North South University, Dhaka, Bangladesh</p>
-			<p><i class="fa fa-phone"></i> +880 1852828239</p>
-			<p><i class="fa fa-envelope"></i> info@zakatwebsite.com</p>
-		</div>
-	</footer>
+    <div class="container-f">
+        <div class="social-links">
+            <a href="#"><i class="fa fa-facebook-f"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin-in"></i></a>
+        </div>
+        <div class="contact-info">
+
+            <p><b>Contact Us</b></p>
+            <p><i class="fa fa-phone"></i> +880 1852828239</p>
+            <p><i class="fa fa-envelope"></i> info@zakatwebsite.com</p>
+        </div>
+        <p>&copy; 2023 Zakat Calculator. All rights reserved.</p>
+    </div>
+</footer>
 </body>
 </html>
