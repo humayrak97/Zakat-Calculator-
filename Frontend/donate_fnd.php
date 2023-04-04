@@ -1,3 +1,12 @@
+<?php
+// Check if the org parameter is set in the URL
+if (isset($_GET['org'])) {
+  $org = $_GET['org'];
+  // Set the cookie with the selected organization
+  setcookie('selected_org', $org, time() + (86400 * 30), "/"); // Cookie will expire in 30 days
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -6,13 +15,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="donate_centrally.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<script>
-        function setSuggestionCookie(foundation) {
-            document.cookie = "donation_suggestion=" + encodeURIComponent(foundation) + "; path=/";
-        }
-    </script>
-	
+
 </head>
 
 <body>
@@ -30,7 +33,7 @@
 						<button class="dropbtn">Donate</button>
 						<div class="dropdown-content">
 							<a href="donate_centrally.html">Centrally</a>
-							<a href="donate_fnd.html">To a Foundation</a>
+							<a href="donate_org.html">To a Foundation</a>
 						</div>
 					</div>
 				</li>
@@ -52,28 +55,14 @@
 		<!-- navbar -->
 	</header>
 	<div class="container">
-		<h1>Donate to a Foundation</h1>
-			<div class="foundation-box" onclick="setSuggestionCookie('Foundation A'); window.location.href='donate_fnd.php?org=Foundation A'">
-				<img src="photos/foundation-a.jpg" alt="Foundation A Logo">
-				<h2>Foundation A</h2>
-			</div>
-			<div class="foundation-box" onclick="setSuggestionCookie('Foundation B'); window.location.href='donate_fnd.php?org=Foundation B'">
-				<img src="photos/foundation-b.jpg" alt="Foundation B Logo">
-				<h2>Foundation B</h2>
-			</div>
-			<div class="foundation-box" onclick="setSuggestionCookie('Foundation B'); window.location.href='donate_fnd.php?org=Foundation C'">
-				<img src="photos/foundation-c.jpg" alt="Foundation C Logo">
-				<h2>Foundation C</h2>
-			</div>
-			<div class="foundation-box" onclick="setSuggestionCookie('Foundation B'); window.location.href='donate_fnd.php?org=Foundation D'">
-				<img src="photos/foundation-d.jpg" alt="Foundation D Logo">
-				<h2>Foundation D</h2>
-			</div>
-			<div class="foundation-box" onclick="setSuggestionCookie('Foundation B'); window.location.href='donate_fnd.php?org=Foundation E'">
-				<img src="photos/foundation-e.jpg" alt="Foundation E Logo">
-				<h2>Foundation E</h2>
-			</div>
-		</div>
+		<h1>Send Zakat</h1>
+		<form>
+
+			<input type="number" name="amount" placeholder="Donation Amount" required>
+			<input type="text" name="message" placeholder="Message" required>
+
+			<input type="submit" value="Send Now">
+		</form>
 	</div>
 
 	<footer>
@@ -93,7 +82,17 @@
 			<p>&copy; 2023 Zakat Calculator. All rights reserved.</p>
 		</div>
 	</footer>
-
 </body>
 
 </html>
+
+
+<?php
+if(isset($_COOKIE['donation_suggestion'])) {
+    $foundation = $_COOKIE['donation_suggestion'];
+    echo "<div class='donation-banner'>
+              <p>Donate to $foundation today!</p>
+              <a href='donate_org.html?org=$foundation'>Donate Now</a>
+          </div>";
+}
+?>
