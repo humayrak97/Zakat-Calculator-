@@ -1,5 +1,22 @@
 <?php
 
+session_start();
+
+// Check if the user is already logged in
+if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
+    header('Location: login.php');
+    exit;
+}
+
+if (isset($_POST['logout'])) {
+    session_destroy(); // destroy all session data
+
+
+	// Redirect to the login page
+	header("Location: login.php");
+    exit;
+}
+
 // Connect to the database
 $servername = "localhost";
 $username = "root";
@@ -12,10 +29,11 @@ if ($mysqli->connect_error) {
     exit();
 }
 
+$name = $_SESSION['username'];
 
 // Retrieve the user information from the database
-$user_id = 1; // Replace with the user ID of the logged-in user
-$sql = "SELECT * FROM users WHERE name = 'a'";
+
+$sql = "SELECT * FROM users WHERE name = '$name'";
 $result = mysqli_query($mysqli, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -32,8 +50,6 @@ if (mysqli_num_rows($result) > 0) {
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,30 +63,48 @@ if (mysqli_num_rows($result) > 0) {
 <body>
 
 	<header>
+
 			<div class="logo">
 				<img src="photos/logo.png"alt="Zakat Calculator Logo">
 				</div>
-				  <nav>
-					  <ul>
-						  <li><a href="landing.html">Home</a></li>
-						  <li><a href="profile.php">Profile</a></li>
-						  <li><a href="calculator.html">Calculator</a></li>
-						  <li><a href="about.html">About</a></li>
-						  <li><a href="login.html">Sign Out</a></li>
-					  </ul>
-				  </nav>
+				  <!-- navbar -->
+		<nav>
+			<ul>
+				<li><a href="landing.php">Home</a></li>
+				<li><a href="calculator.php">Calculator</a></li>
+				<li>
+					<div class="dropdown">
+						<button class="dropbtn">Donate</button>
+						<div class="dropdown-content">
+							<a href="donate_centrally.php">Centrally</a>
+							<a href="foundations.php">To a Foundation</a>
+						</div>
+					</div>
+				</li>
+				<li><a href="request_receiver.php">Request</a></li>
+				<li>
+					<div class="dropdown">
+						<button class="dropbtn">History</button>
+						<div class="dropdown-content">
+							<a href="payment-history.php">Payment</a>
+							<a href="finance-history.php">Finance</a>
+						</div>
+					</div>
+				</li>
+				<li><a href="profile.php">Profile</a></li>
+				<li><a href="about.php">About</a></li>
+				<form action = 'profile.php' method="POST">
+				<li><a href="login.php"><input type="submit" name="logout" value="Sign Out"></a></li>
+				</form>
+			</ul>
+		</nav>
 	</header>
 
 	<main>
 
 		
 		<div class="container">
-			<div class="cover-photo">
-				<img src="https://picsum.photos/2000/300" alt="Cover photo">
-			</div>
-			<div class="profile-photo">
-				<img src="https://picsum.photos/200/200" alt="Profile photo">
-			</div>
+			
 			<div class="user-info">
 				<h1><?php echo "$title $name"; ?></h1>
 				<ul>

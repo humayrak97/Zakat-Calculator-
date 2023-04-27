@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+// Check if the user is already logged in
+if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
+    header('Location: login.php');
+    exit;
+}
+
+if (isset($_POST['logout'])) {
+    session_destroy(); // destroy all session data
+
+
+	// Redirect to the login page
+	header("Location: login.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,30 +37,32 @@
 		<!-- navbar -->
 		<nav>
 			<ul>
-				<li><a href="landing.html">Home</a></li>
-				<li><a href="calculator.html">Calculator</a></li>
+				<li><a href="landing.php">Home</a></li>
+				<li><a href="calculator.php">Calculator</a></li>
 				<li>
 					<div class="dropdown">
 						<button class="dropbtn">Donate</button>
 						<div class="dropdown-content">
-							<a href="donate_centrally.html">Centrally</a>
-							<a href="donate_org.html">To a Foundation</a>
+							<a href="donate_centrally.php">Centrally</a>
+							<a href="foundations.php">To a Foundation</a>
 						</div>
 					</div>
 				</li>
-				<li><a href="request_receiver.html">Request</a></li>
+				<li><a href="request_receiver.php">Request</a></li>
 				<li>
 					<div class="dropdown">
 						<button class="dropbtn">History</button>
 						<div class="dropdown-content">
-							<a href="payment-history.html">Payment</a>
-							<a href="finance-history.html">Finance</a>
+							<a href="payment-history.php">Payment</a>
+							<a href="finance-history.php">Finance</a>
 						</div>
 					</div>
 				</li>
-				<li><a href="profile.html">Profile</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="login.html">Sign Out</a></li>
+				<li><a href="profile.php">Profile</a></li>
+				<li><a href="about.php">About</a></li>
+				<form action = 'profile.php' method="POST">
+				<li><a href="login.php"><input type="submit" name="logout" value="Sign Out"></a></li>
+				</form>
 			</ul>
 		</nav>
 		<!-- navbar -->

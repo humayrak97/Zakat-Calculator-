@@ -10,11 +10,13 @@ body {
   background-image: url("photos/bg.png");
   background-size: cover;
   background-position: center;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 5em;
 }
+
+
 
 .container {
   max-width: 500px;

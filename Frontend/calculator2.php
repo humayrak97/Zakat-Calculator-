@@ -2,67 +2,36 @@
 
 session_start();
 
-// Check if the user is already logged in
-if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
-    header('Location: login.php');
-    exit;
+$zakat = $_SESSION['zakat'];
+
+if (isset($_POST['saveInfo'])){
+		$dbhost ='localhost';
+		$dbuser = 'root';
+		$dbpass = '';
+		$dbname = "zakat";
+
+		$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname) ;
+
+		if ($mysqli -> connect_error){
+			printf("connection failed",$mysqli-> connect_error);
+			exit();
+		}
+
+		$name = $_SESSION['username'];
+		$savings = $_SESSION['savings'];
+	  $expenses = $_SESSION['expenses'];
+	  $debt = $_SESSION['debt'];
+	  $gold = $_SESSION['gold'];
+	  $silver = $_SESSION['silver'];
+
+	  $sql = "INSERT INTO financeHistory (name, savings, expenses, debt, gold, silver, zakat_due) VALUES ('$name', '$savings', '$expenses', '$debt', '$gold', '$silver', '$zakat')";
+      //fire query to save entries and check it with if statement
+    $rs = mysqli_query($mysqli, $sql);
+
+    // Redirect to the login page
+		header("Location: finance-history.php");
+    
 }
-
-if (isset($_POST['logout'])) {
-    session_destroy(); // destroy all session data
-
-	// Redirect to the login page
-	header("Location: login.php");
-    exit;
-}
-
-
-
-
-$zakat=0.0;
-
-
-// Check if the form was submitted
-if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Get the input values from the form
-
-	{
-  $savings = 0.0;
-  $expenses = 0.0;
-  $debt = 0.0;
-  $gold = 0.0;
-  $silver = 0.0;
-
-  $savings = $savings + $_POST['input1'];
-  $expenses = $expenses + $_POST['input2'];
-  $debt = $debt + $_POST['input3'];
-  $gold = $gold + $_POST['input4'];
-  $silver = $silver + $_POST['input5'];
-
-  // Calculate the Zakat based on the input values
-  $zakat = 0.025 * ($savings - $expenses - $debt);
-
-  if ($gold > 0) {
-    $zakat += 0.025 * $gold;
-  }
-
-  if ($silver > 0) {
-    $zakat += 0.025 * $silver;
-  }
-
-  $_SESSION['savings'] = $savings;
-  $_SESSION['expenses'] = $expenses;
-  $_SESSION['debt'] = $debt;
-  $_SESSION['gold'] = $gold;
-  $_SESSION['silver'] = $silver;
-  $_SESSION['zakat'] = $zakat;
-
-  header("Location: calculator2.php");
-}
-
-}
-
-
 ?>
 
 
@@ -125,24 +94,16 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
 	<!-- Form -->
 	<div class="notebook">
 		<h1>Zakat Calculator</h1>
-		<form  method = "POST">
-			<label for="input1">Savings (in TK):</label>
-			<input type="number" id="input1" name="input1">
+		<form action = 'calculator2.php' method = "POST">
 
-			<label for="input2">Expenses (in TK):</label>
-			<input type="number" id="input2" name="input2">
-
-			<label for="input3">Debt (in TK):</label>
-			<input type="number" id="input3" name="input3">
-
-			<label for="input4">Gold (in gm):</label>
-			<input type="number" id="input4" name="input4">
-
-			<label for="input5">Silver (in gm):</label>
-			<input type="number" id="input5" name="input5">
-
-			<a href="calculator2.php"><input type="submit" value="Submit"></a>
-			
+			<table class="output-table">
+			  <tr>
+			    <td><h3>Payable Zakat: <?php echo $zakat; ?> TK</h3></td>
+			  </tr>
+			</table>
+			<form action = 'calculator2.php' method="POST">
+				<a href="landing.php"><input type="submit" name="saveInfo" value="Save Info"></a>
+				</form>
 		</form>
 	</div>
 	<footer>

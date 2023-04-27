@@ -1,14 +1,11 @@
 /* Global styles */
-
 body {
+	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
-	background-image: url('photos/bg.png');
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	font-family: Arial, sans-serif;	
-    
+  background-image: url('photos/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 
@@ -71,6 +68,10 @@ header {
 			border-radius: 10px;
 			padding: 10px 20px;
 		}
+    nav ul li a input {
+      border: none;
+      background: none;
+    }
 		
 .dropbtn {
   color: black;

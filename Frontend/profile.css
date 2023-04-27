@@ -1,23 +1,15 @@
-
+* {
+	margin: 0;
+	padding: 0;
+}
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
   background-image: url('photos/bg.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
-
-.output-table {
-    border: none;
-    padding: 10px;
-  }
-  .output-table td {
-    padding: 5px;
-  }
-
-
 /* NAVBAR starts*/
 		
 header {
@@ -39,6 +31,7 @@ header {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
+
   color: #fff;
 }
 
@@ -50,43 +43,37 @@ header {
 
 }
 		nav {
-      display: flex-right;
-      align-items: center;
-      justify-content: flex-end;
-    }
-    nav ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      list-style-type: none;
-    }
-    nav ul li {
-      margin-left: 20px;
-      font-weight: bold;
-    }
-    nav ul li a {
-      color: #333;
-      text-decoration: none;
-      padding: 10px;
-      transition: all 0.3s ease-in-out;
-    }
-    nav ul li a:hover {
-      background-color: #20B2AA;
-      color: white;
-      border-radius: 10px;
-      padding: 10px 20px;
-    }
-    header nav ul li a input {
-      border: none;
-      background: none;
-    }
+			display: flex-right;
+			align-items: center;
+			justify-content: flex-end;
+		}
+		nav ul {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			list-style-type: none;
+		}
+		nav ul li {
+			margin-left: 20px;
+			font-weight: bold;
+		}
+		nav ul li a {
+			color: #333;
+			text-decoration: none;
+			padding: 10px;
+			transition: all 0.3s ease-in-out;
+		}
+		nav ul li a:hover {
+			background-color: #20B2AA;
+			color: white;
+			border-radius: 10px;
+			padding: 10px 20px;
+		}
 
-    header nav ul li a input:hover {
-      border: none;
-      background: none;
-    }
-
-    
+		nav ul li a input {
+			border: none;
+			background: none;
+		}
 		
 .dropbtn {
   color: black;
@@ -131,50 +118,138 @@ header {
 		
 /* NAVBAR ends */	
 
-/* starts Hamburger icon */
+
+.container {
+	max-width: 700px;
+	margin-top : 130px ;
+	margin-bottom: 130px;
+	background-color: #fff;
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+	border-radius: 20px;
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 
-/* ends Hamburger icon */
-
-.notebook {
-
-    max-width: 700px;
-    margin: 130px auto;
-    background-color: #fff;
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+.cover-photo img {
+	margin-top : -50px ;
     border-radius: 20px;
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	max-width: 700px;
 
+	display: flex;
+	padding: 10px;
+	
+}
+@media screen and (max-width: 768px) {
+	.cover-photo img {
+	  margin-top: -50px;
+	}
+  }
+  
+  @media screen and (max-width: 480px) {
+	.cover-photo img {
+	  margin-top: -30px;
+	}
+  }
+
+.profile-photo {
+	border-radius: 50%;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+height: 190px;
+margin: -100px auto 0 auto;   /* automatically calculates and sets equal margins on both sides of the element, effectively centering it within its container. */
+overflow: hidden;      /* clips any content that overflows the element's boundaries and hides it from view. */
+width: 190px;
 }
 
-.notebook form input[type=number] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+.profile-photo img {
+max-width: 100%;
 }
 
-.notebook form input[type=submit] {
-  background-color: #40E0D0;
-  color: #fff;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
+.user-info {
+margin-top: 30px;
+text-align: center;
 }
 
-.notebook form input[type=submit]:hover {
-  background-color: #00CED1;
-  color: black;
-
+.user-info h1 {
+font-size: 36px;
+margin-bottom: 10px;
 }
+
+.user-info p {
+color: #666;
+font-size: 18px;
+margin-bottom: 30px;
+}
+
+.user-info ul {
+list-style: none;
+margin-bottom: 30px;
+padding: 0;
+}
+
+.user-info ul li {
+font-size: 16px;
+line-height: 1.5;
+margin-bottom: 10px;
+position: relative;
+padding-left: 35px;
+text-align: left;
+}
+
+.user-info ul li:last-child {
+margin-bottom: 0;
+}
+
+.user-info ul li .icon {
+background-color: #ddd;
+border-radius: 50%;
+display: inline-block;
+height: 20px;
+left: 0;
+position: absolute;
+text-align: center;
+top: 0;
+width: 20px;
+}
+
+.user-info ul li .icon i {
+color: #fff;
+font-size: 14px;
+line-height: 20px;
+}
+
+.user-info ul li a {
+color: #666;
+text-decoration: none;
+}
+
+.user-info ul li a:hover {
+color: #333;
+}
+
+.user-stats {
+display: flex;
+margin-top: 30px;
+}
+
+.stat {
+flex: 1;
+text-align: center;
+}
+
+.stat .value {
+color: #333;
+font-size: 36px;
+margin-bottom: 10px;
+}
+
+.stat .label {
+color: #999;
+font-size: 16px;
+}
+
 			
 /* FOOTER starts */
  

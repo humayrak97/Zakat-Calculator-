@@ -1,0 +1,391 @@
+/* Global styles */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #444;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+		
+nav ul li a input {
+      border: none;
+      background: none;
+    }
+  
+  .hero {
+  height: 100vh;
+  background-image: URL(https://source.unsplash.com/IZ01rjX0XQA/1600x900);background-size: cover;
+  background-position: center;
+  position: relative;
+  }
+  
+  .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  }
+  
+  .hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+  font-size: 24px;
+  margin-bottom: 40px;
+  }
+  
+  .btn-primary {
+  display: inline-block;
+  background-color: #fff;
+  color: #444;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  }
+  
+  .btn-primary:hover {
+  background-color: #f0f0f0;
+  color: #333;
+  }
+  
+  .services {
+  padding: 100px 0;
+  background-color: #f0f0f0;
+  }
+  
+  .service-box {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 40px;
+  }
+  
+  .service-box i {
+  font-size: 48px;
+  color: #f05f40;
+  margin-bottom: 20px;
+  }
+  
+  .service-box h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  }
+  
+  .service-box p {
+  font-size: 16px;
+  }
+  
+  .about {
+  padding: 100px 0;
+  text-align: center;
+  }
+  
+  .about h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  }
+  
+  .about p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  }
+  
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+  }
+  
+  .container-f{
+    background-color: #fff;
+     padding: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #333;
+    width: 100%;
+  }
+  
+  .social-links {
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+  }
+  
+  .social-links a {
+    color: #333;
+    margin-right: 20px;
+    font-size: 24px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .social-links a:hover {
+    transform: translateY(-5px);
+    color: turquoise;
+  }
+  
+  .contact-info {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    color: black;
+  }
+  
+ 
+  
+  .contact-info p {
+    margin: 0;
+    color: #333;
+    font-size: 12px;
+    line-height: 1.5;
+    
+  }
+  .container-f p{
+    color: #333;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  /* NAVBAR starts*/
+		
+header {
+	background-color: #fff;
+	padding: 10px;
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 10px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+
+  color: #fff;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(5, 118, 97, 0.8);
+
+}
+		nav {
+			display: flex-right;
+			align-items: center;
+			justify-content: flex-end;
+		}
+		nav ul {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			list-style-type: none;
+		}
+		nav ul li {
+			margin-left: 20px;
+			font-weight: bold;
+		}
+		nav ul li a {
+			color: #333;
+			text-decoration: none;
+			padding: 10px;
+			transition: all 0.3s ease-in-out;
+		}
+		nav ul li a:hover {
+			background-color: #20B2AA;
+			color: white;
+			border-radius: 10px;
+			padding: 10px 20px;
+		}
+		
+.dropbtn {
+  color: black;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  border-radius: 20px;
+  background-color: #20B2AA;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #20B2AA;
+	color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #20B2AA;
+			color: #fff;
+			border-radius: 10px;
+			padding: 5px 10px;
+}
+		
+/* NAVBAR ends */	
+
+			
+/* FOOTER starts */
+ 
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.container-f{
+  background-color: #fff;
+   padding: 10px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #333;
+  width: 100%;
+}
+
+.social-links {
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
+}
+
+.social-links a {
+  color: #333;
+  margin-right: 20px;
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px);
+  color: turquoise;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  color: black;
+}
+
+
+
+.contact-info p {
+  margin: 0;
+  color: #333;
+  font-size: 12px;
+  line-height: 1.5;
+  
+}
+.container-f p{
+  color: #333;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+/* FOOTER ends */
+
+@media screen and (max-width: 768px) {
+header {
+padding: 10px 20px;
+}
+nav ul li {
+margin-left: 10px;
+}
+.logo {
+margin-left: 10px;
+}
+.container {
+padding: 20px;
+}
+input[type="submit"] {
+font-size: 16px;
+}
+footer {
+padding: 20px;
+}
+.contact-info {
+margin-left: 0;
+margin-top: 20px;
+}
+}

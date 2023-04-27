@@ -1,3 +1,41 @@
+<?php
+
+session_start();
+
+// Check if the user is already logged in
+if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
+    header('Location: login.php');
+    exit;
+}
+
+if (isset($_POST['logout'])) {
+    session_destroy(); // destroy all session data
+
+
+	// Redirect to the login page
+	header("Location: login.php");
+    exit;
+}
+
+
+if (isset($_POST['logout'])) {
+    session_destroy(); // destroy all session data
+
+    // Set the cookie variables
+	setcookie('loggedin', false, time() - 3600); // set value to an empty string and set the expiration time to a time in the past
+	setcookie('username', '', time() - 3600); // set value to an empty string and set the expiration time to a time in the past
+
+	// Redirect to the login page
+	header("Location: login.php");
+    exit;
+}
+
+if(isset($_COOKIE['donation_suggestion'])) {
+    $foundation = $_COOKIE['donation_suggestion'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,30 +53,32 @@
 		<!-- navbar -->
 		<nav>
 			<ul>
-				<li><a href="landing.html">Home</a></li>
-				<li><a href="calculator.html">Calculator</a></li>
+				<li><a href="landing.php">Home</a></li>
+				<li><a href="calculator.php">Calculator</a></li>
 				<li>
 					<div class="dropdown">
 						<button class="dropbtn">Donate</button>
 						<div class="dropdown-content">
-							<a href="donate_centrally.html">Centrally</a>
-							<a href="donate_org.html">To a Foundation</a>
+							<a href="donate_centrally.php">Centrally</a>
+							<a href="foundations.php">To a Foundation</a>
 						</div>
 					</div>
 				</li>
-				<li><a href="request_receiver.html">Request</a></li>
+				<li><a href="request_receiver.php">Request</a></li>
 				<li>
 					<div class="dropdown">
 						<button class="dropbtn">History</button>
 						<div class="dropdown-content">
-							<a href="payment-history.html">Payment</a>
-							<a href="finance-history.html">Finance</a>
+							<a href="payment-history.php">Payment</a>
+							<a href="finance-history.php">Finance</a>
 						</div>
 					</div>
 				</li>
-				<li><a href="profile.html">Profile</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="login.html">Sign Out</a></li>
+				<li><a href="profile.php">Profile</a></li>
+				<li><a href="about.php">About</a></li>
+				<form action = 'profile.php' method="POST">
+				<li><a href="login.php"><input type="submit" name="logout" value="Sign Out"></a></li>
+				</form>
 			</ul>
 		</nav>
 		<!-- navbar -->
@@ -73,7 +113,9 @@
 			<p>Zakat is different from Sadaqah, which is voluntary charitable giving that is encouraged but not obligatory. While Zakat is required of all eligible Muslims, Sadaqah is a personal choice and can be given in any amount and at any time.</p>
 		</section>
 	</main>
+	<p>Donate to <?php echo $foundation;?> Today!</p>
     </div>
+
 	<footer>
 		<div class="container-f">
 			<div class="social-links">
@@ -90,6 +132,9 @@
 				</div>
 			<p>&copy; 2023 Zakat Calculator. All rights reserved.</p>
 		  </div>
+		  
 			</footer>
 </body>
 </html>
+
+

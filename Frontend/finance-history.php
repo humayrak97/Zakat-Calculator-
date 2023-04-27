@@ -1,3 +1,41 @@
+<?php
+session_start();
+
+// Check if the user is already logged in
+if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
+    header('Location: login.php');
+    exit;
+}
+
+if (isset($_POST['logout'])) {
+    session_destroy(); // destroy all session data
+
+
+	// Redirect to the login page
+	header("Location: login.php");
+    exit;
+}
+
+		$dbhost ='localhost';
+		$dbuser = 'root';
+		$dbpass = '';
+		$dbname = "zakat";
+
+		$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname) ;
+
+		if ($mysqli -> connect_error){
+			printf("connection failed",$mysqli-> connect_error);
+			exit();
+		}
+
+		$name = $_SESSION['username'];
+
+		$sql = "SELECT * from financeHistory where name = '$name'";
+
+		$rs = mysqli_query($mysqli, $sql);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,30 +53,32 @@
 		<!-- navbar -->
 		<nav>
 			<ul>
-				<li><a href="landing.html">Home</a></li>
-				<li><a href="calculator.html">Calculator</a></li>
+				<li><a href="landing.php">Home</a></li>
+				<li><a href="calculator.php">Calculator</a></li>
 				<li>
 					<div class="dropdown">
 						<button class="dropbtn">Donate</button>
 						<div class="dropdown-content">
-							<a href="donate_centrally.html">Centrally</a>
-							<a href="donate_org.html">To a Foundation</a>
+							<a href="donate_centrally.php">Centrally</a>
+							<a href="foundations.php">To a Foundation</a>
 						</div>
 					</div>
 				</li>
-				<li><a href="request_receiver.html">Request</a></li>
+				<li><a href="request_receiver.php">Request</a></li>
 				<li>
 					<div class="dropdown">
 						<button class="dropbtn">History</button>
 						<div class="dropdown-content">
-							<a href="payment-history.html">Payment</a>
-							<a href="finance-history.html">Finance</a>
+							<a href="payment-history.php">Payment</a>
+							<a href="finance-history.php">Finance</a>
 						</div>
 					</div>
 				</li>
-				<li><a href="profile.html">Profile</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="login.html">Sign Out</a></li>
+				<li><a href="profile.php">Profile</a></li>
+				<li><a href="about.php">About</a></li>
+				<form action = 'profile.php' method="POST">
+				<li><a href="login.php"><input type="submit" name="logout" value="Sign Out"></a></li>
+				</form>
 			</ul>
 		</nav>
 		<!-- navbar -->
@@ -49,39 +89,24 @@
 	<table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Information</th>
+                <th>Savings</th>
+                <th>Expenses</th>
+                <th>Debt</th>
+                <th>Gold</th>
+                <th>Silver</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>2022-07-20</td>
-                <td>10,000 Tk</td>
-                <td contenteditable="true">Zakat al-Fitr</td>
-            </tr>
-            <tr>
-              <td>2022-02-20</td>
-              <td>30,000 Tk</td>
-              <td contenteditable="true">Zakat al-Mal</td>
-          </tr>
-          <tr>
-            <td>2021-10-18</td>
-            <td>16,000 Tk</td>
-            <td contenteditable="true">Zakat al-Mal</td>
-        </tr>
-        <tr>
-          <td>2021-02-20</td>
-          <td>24,000 Tk</td>
-          <td contenteditable="true">Zakat al-Fitr</td>
-      </tr>
-      <tr>
-        <td>2020-06-21</td>
-        <td>15,000 Tk</td>
-        <td contenteditable="true">Zakat al-Fitr</td>
-      </tr>
+        	<?php while ($row = mysqli_fetch_assoc($rs)) { ?>
+		      <tr>
+		        <td><?php echo $row['savings']; ?></td>
+				<td><?php echo $row['expenses']; ?></td>
+				<td><?php echo $row['debt']; ?></td>
+				<td><?php echo $row['gold']; ?></td>
+				<td><?php echo $row['silver']; ?></td>
+		      </tr>
             
-
+		     <?php } ?>
         </tbody>
     </table>
     <script>
