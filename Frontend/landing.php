@@ -32,7 +32,7 @@ if (isset($_POST['logout'])) {
 <body>
 	<header>
 		<div class="logo">
-			<img src="photos/logo.png" alt="Zakat Calculator Logo">
+			<img src="photos/logo.png" alt="Zakat Calculator Logo" loading="lazy">
 		</div>
 		<!-- navbar -->
 		<nav>
@@ -67,7 +67,7 @@ if (isset($_POST['logout'])) {
 		</nav>
 		<!-- navbar -->
 	</header>
-	<section class="hero">
+	<section class="hero" loading="lazy">
 		<div class="hero-overlay"></div>
 		<div class="hero-content">
 			<h1>Welcome to Zakat It</h1>
@@ -101,11 +101,11 @@ if (isset($_POST['logout'])) {
 		</div>
 	</section>
 
-	<section class="about">
+	<section class="about" loading="lazy">
 		<h2>About Us</h2>
 		<p>We handle zakat money under ... and distribute it to those who are eligible.</p>
 	</section>
-	<footer>
+	<footer loading="lazy">
 	<div class="container-f">
 		<div class="social-links">
 				<a href="#"><i class="fa fa-facebook-f"></i></a>
