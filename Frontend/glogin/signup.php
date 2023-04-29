@@ -215,6 +215,7 @@ h1 {
 
     <div class="social-login">
     <?php
+   
     require_once 'vendor/autoload.php';
   $clientID = '536728347311-lgdo8820guatd7ifipd63pelpjgn9pnv.apps.googleusercontent.com';
   $clientSecret = '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';
@@ -228,6 +229,8 @@ h1 {
   $client->setRedirectUri($redirectUrl);
   $client->addScope('profile');
   $client->addScope('email');
+  $query = "SELECT * FROM users WHERE email = '$email'";
+  
 
   if(isset($_GET['code'])){
   $token=$client->fetchAccessTokenWithAuthCode($_GET['code']);
@@ -237,8 +240,8 @@ h1 {
   $google_info = $gauth->userinfo->get();
   $email = $google_info->email;
   $name =$google_info->name;
-  
   echo "Welcome ".$name." You're signed up using email:" .$email;
+
 
   }
   else{
@@ -255,7 +258,7 @@ h1 {
             </a>
           </div>';
   
-   // echo "<a href= '".$client->createAuthUrl()."'>Login with Google</a>";
+  
   }
   ?>
 
