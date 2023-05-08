@@ -32,6 +32,8 @@ if (isset($_POST['logout'])) {
 
 		$sql = "SELECT * from financeHistory where name = '$name'";
 
+		
+
 		$rs = mysqli_query($mysqli, $sql);
 
 ?>
