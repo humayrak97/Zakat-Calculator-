@@ -122,7 +122,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $clientID = '536728347311-lgdo8820guatd7ifipd63pelpjgn9pnv.apps.googleusercontent.com';
   $clientSecret = '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';
   // use your directory like this
-  $redirectUrl = 'http://localhost/zakat/Frontend/glogin/login.php';
+  // $redirectUrl = 'http://localhost/zakat/Frontend/glogin/login.php';
+  $redirectUrl = 'http://localhost/Zakat-Calculator-/Frontend/glogin/login.php';
 
   // Creating client request to google
   $client = new Google_Client();
