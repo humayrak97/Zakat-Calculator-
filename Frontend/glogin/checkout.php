@@ -69,10 +69,14 @@ curl_setopt($handle, CURLOPT_POSTFIELDS, $post_data);
 curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, FALSE); # KEEP IT FALSE IF YOU RUN FROM LOCAL PC
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "zakat";
+// $host = "localhost";
+// $username = "root";
+// $password = "";
+//$dbname = "zakat";
+ $host = "localhost";
+  $username = "id20779725_zakatitapp";
+  $password = "Triplet@jh23";
+  $dbname = "id20779725_zakat";
 
 //create connection
 $con = mysqli_connect($host, $username, $password, $dbname);

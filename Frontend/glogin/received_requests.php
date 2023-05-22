@@ -1,8 +1,13 @@
 <?php
-        $dbhost ='localhost';
+        /*$dbhost ='localhost';
         $dbuser = 'root';
         $dbpass = '';
-        $dbname = "zakat";
+        $dbname = "zakat"; */
+
+        $dbhost = "localhost";
+		$dbuser = "id20779725_zakatitapp";
+		$dbpass = "Triplet@jh23";
+		$dbname = "id20779725_zakat";
 
         $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname) ;
 

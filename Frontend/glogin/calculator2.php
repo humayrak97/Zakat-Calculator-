@@ -5,10 +5,14 @@ session_start();
 $zakat = $_SESSION['zakat'];
 
 if (isset($_POST['saveInfo'])){
-		$dbhost ='localhost';
-		$dbuser = 'root';
-		$dbpass = '';
-		$dbname = "zakat";
+		// $dbhost ='localhost';
+	    // $dbuser = 'root';
+		// $dbpass = '';
+		// $dbname = "zakat"; 
+		$dbhost  = "localhost";
+        $dbuser = "id20779725_zakatitapp";
+        $dbpass = "Triplet@jh23";
+		$dbname = "id20779725_zakat";
 
 		$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname) ;
 

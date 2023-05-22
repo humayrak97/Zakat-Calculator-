@@ -16,11 +16,16 @@ if (isset($_POST['logout'])) {
     exit;
 }
 //database details. You have created these details in the third step. Use your own.
-        $host = "localhost";
+        /*
+		$host = "localhost";
         $username = "root";
         $password = "";
         $dbname = "zakat";
- 
+		*/
+		$host = "localhost";
+		$username = "id20779725_zakatitapp";
+		$password = "Triplet@jh23";
+		$dbname = "id20779725_zakat";
         //create connection
         $con = mysqli_connect($host, $username, $password, $dbname);
         //check connection if it is working or not

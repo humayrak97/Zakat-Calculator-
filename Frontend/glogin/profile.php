@@ -18,10 +18,14 @@ if (isset($_POST['logout'])) {
 }
 
 // Connect to the database
-$servername = "localhost";
+/*$servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "zakat";
+$dbname = "zakat"; */
+  $servername = "localhost";
+  $username = "id20779725_zakatitapp";
+  $password = "Triplet@jh23";
+  $dbname = "id20779725_zakat";
 
 $mysqli = new mysqli($servername, $username, $password, $dbname);
 if ($mysqli->connect_error) {

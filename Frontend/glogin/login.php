@@ -9,10 +9,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $host = "localhost";
+        /*$host = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "zakat";
+        $dbname = "zakat"; */
+        $host = "localhost";
+  $username = "id20779725_zakatitapp";
+  $password = "Triplet@jh23";
+  $dbname = "id20779725_zakat";
  
         //create connection
         $con = mysqli_connect($host, $username, $password, $dbname);

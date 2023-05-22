@@ -54,11 +54,15 @@ if($code == 200 && !( curl_errno($handle)))
 	$gw_version = $result->gw_version;
 
 	echo "\nStatus: ".$status."\r\nTransaction Date: ".$tran_date."\r\nTransaction ID: ".$tran_id."\r\nStore Amount: ".$store_amount;
-
+/*
 $host = "localhost";
 $username = "root";
 $password = "";
-$dbname = "zakat";
+$dbname = "zakat"; */
+$host = "localhost";
+  $username = "id20779725_zakatitapp";
+  $password = "Triplet@jh23";
+  $dbname = "id20779725_zakat";
 
 //create connection
 $con = mysqli_connect($host, $username, $password, $dbname);
