@@ -8,11 +8,59 @@ if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
 }
 
 if (isset($_POST['logout'])) {
+	session_unset();
     session_destroy(); // destroy all session data
 
 	// Redirect to the login page
 	header("Location: login.php");
     exit;
+}
+
+$dbhost ='localhost';
+$dbuser = 'root';
+$dbpass = '';
+$dbname = "zakat";
+
+$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname) ;
+
+if ($mysqli -> connect_error){
+	printf("connection failed",$mysqli-> connect_error);
+	exit();
+}
+
+$name = $_SESSION['username'];
+$message = $_SESSION['message'];
+$amount = $_SESSION['amount'];
+
+echo $name.$message.$amount;
+
+$referrer = $_GET['referrer'];
+if($referrer == 'http://localhost/zakat/Frontend/glogin/success.php')
+{
+	echo '<script>alert("The Transaction Was Successful!");
+	var url = window.location.href;
+                    url = removeURLParameter(url, "?referrer");
+                    window.location.href = url;
+                    
+                    function removeURLParameter(url, parameter) {
+					let result = url.split(parameter)[0];
+
+                        return result;
+                    }
+                    </script>';
+
+                    //This below line is a code to Send form entries to database
+        $sql = "INSERT INTO donateCentrally (name, address, phone, job, email, amount, message) VALUES ('$name', '', '', '', '', '$amount', '$message')";
+        
+      //fire query to save entries and check it with if statement
+        $rs = mysqli_query($con, $sql);
+        if($rs)
+        {
+            echo "Message has been sent successfully!";
+        }
+      	else{
+         	echo "Error, Message didn't send! Something's Wrong."; 
+        }
 }
 
 if (isset($_POST['search'])){
@@ -23,26 +71,11 @@ if (isset($_POST['search'])){
     exit;
 }
 
-
-		$dbhost ='localhost';
-		$dbuser = 'root';
-		$dbpass = '';
-		$dbname = "zakat";
-
-		$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname) ;
-
-		if ($mysqli -> connect_error){
-			printf("connection failed",$mysqli-> connect_error);
-			exit();
-		}
-
-		$name = $_SESSION['username'];
-
-		$sql = "SELECT amount, message from donateCentrally where name = '$name'";
+		$sql = "SELECT amount, message from donateCentrally where name = '$name' and status = 'complete' ";
 
 		$rs = mysqli_query($mysqli, $sql);
 
-		$sql = "SELECT amount, message from foundationDonations where name = '$name'";
+		$sql = "SELECT amount, message from foundationDonations where name = '$name' and status = 'complete' ";
 
 		$rs2 = mysqli_query($mysqli, $sql);
 
@@ -63,7 +96,7 @@ if (isset($_POST['search'])){
 <body>
 	<header>
 		<div class="logo">
-			<img src="photos/logo.png" alt="Zakat Calculator Logo">
+			<img src="photos/logo.svg" alt="Zakat Calculator Logo">
 		</div>
 		<!-- navbar -->
 		<nav>

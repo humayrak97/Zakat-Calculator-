@@ -64,9 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   background-image: url("photos/bg.png");
   background-size: cover;
   background-position: center;
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  background-repeat: no-repeat;
+  margin: 5em;
+}
 
   .container {
   max-width: 500px;
@@ -220,7 +222,7 @@ h1 {
   $clientID = '536728347311-lgdo8820guatd7ifipd63pelpjgn9pnv.apps.googleusercontent.com';
   $clientSecret = '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';
   // use your directory like this
-  $redirectUrl = 'http://localhost/482L/Zakat-Calculator-/Frontend/glogin/login.php';
+  $redirectUrl = 'http://localhost/Zakat-Calculator-/Frontend/glogin/login.php';
 
   // Creating client request to google
   $client = new Google_Client();
@@ -242,6 +244,10 @@ h1 {
   $name =$google_info->name;
   echo "Welcome ".$name." You're signed up using email:" .$email;
 
+  $_SESSION['loggedin'] = true;
+  $_SESSION['username'] = $name;
+
+  header('Location: profile.php');
 
   }
   else{
@@ -253,7 +259,7 @@ h1 {
             <a href="' . $googleLoginUrl . '">
               <button>
                 <img src="https://img.icons8.com/color/48/000000/google-logo.png"/>
-                <h4>Log In with Google</h4>
+                <h4>Sign Up with Google</h4>
               </button>
             </a>
           </div>';

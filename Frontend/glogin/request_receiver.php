@@ -8,6 +8,7 @@ if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
 }
 
 if (isset($_POST['logout'])) {
+	session_unset();
     session_destroy(); // destroy all session data
 
 
@@ -16,6 +17,8 @@ if (isset($_POST['logout'])) {
     exit;
 }
 //database details. You have created these details in the third step. Use your own.
+        
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $host = "localhost";
         $username = "root";
         $password = "";
@@ -37,11 +40,12 @@ if (isset($_POST['logout'])) {
         $nid = $_POST['nid'];
         $income = $_POST['income'];
         $message = $_POST['message'];
+        $status = "pending";
         
 
         
         //This below line is a code to Send form entries to database
-        $sql = "INSERT INTO requestForZakatable (name, address, phone, job, email, nid, income, message) VALUES ('$name', '$address', '$phone', '$job', '$email', '$nid', '$income', '$message')";
+        $sql = "INSERT INTO requestForZakatable (name, address, phone, job, email, nid, income, message, status) VALUES ('$name', '$address', '$phone', '$job', '$email', '$nid', '$income', '$message', '$status')";
         
       //fire query to save entries and check it with if statement
         $rs = mysqli_query($con, $sql);
@@ -52,6 +56,7 @@ if (isset($_POST['logout'])) {
       	else{
          	echo "Error, Message didn't send! Something's Wrong."; 
         }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +71,7 @@ if (isset($_POST['logout'])) {
 <body>
 	<header>
 		<div class="logo">
-			<img src="photos/logo.png" alt="Zakat Calculator Logo">
+			<img src="photos/logo.svg" alt="Zakat Calculator Logo">
 		</div>
 		<!-- navbar -->
 			</div>

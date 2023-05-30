@@ -15,6 +15,7 @@ if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
 }
 
 if (isset($_POST['logout'])) {
+	session_unset();
     session_destroy(); // destroy all session data
 
 
@@ -39,7 +40,7 @@ if (isset($_POST['logout'])) {
 <body>
 	<header>
 		<div class="logo">
-			<img src="photos/logo.png" alt="Zakat Calculator Logo">
+			<img src="photos/logo.svg" alt="Zakat Calculator Logo">
 		</div>
 		<!-- navbar -->
 		<nav>
@@ -76,7 +77,7 @@ if (isset($_POST['logout'])) {
 	</header>
 	<div class="container">
 		<h1>Send Zakat</h1>
-		<form>
+		<form method="GET" action="checkout.php">
 
 			<input type="number" name="amount" placeholder="Donation Amount" required>
 			<input type="text" name="message" placeholder="Message" required>
@@ -105,14 +106,3 @@ if (isset($_POST['logout'])) {
 </body>
 
 </html>
-
-
-<?php
-if(isset($_COOKIE['donation_suggestion'])) {
-    $foundation = $_COOKIE['donation_suggestion'];
-    echo "<div class='donation-banner'>
-              <p>Donate to $foundation today!</p>
-              <a href='donate_fnd.php?org=$foundation'>Donate Now</a>
-          </div>";
-}
-?>

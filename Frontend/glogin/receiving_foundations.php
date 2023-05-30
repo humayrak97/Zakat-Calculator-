@@ -8,6 +8,7 @@ if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
 }
 
 if (isset($_POST['logout'])) {
+    session_unset();
     session_destroy(); // destroy all session data
 
 
@@ -29,7 +30,7 @@ if (isset($_POST['logout'])) {
 <body>
 	<header>
         <div class="logo">
-                <img src="photos/logo.png"alt="Zakat Calculator Logo">
+                <img src="photos/logo.svg"alt="Zakat Calculator Logo">
                 </div>
         <nav>
             <ul>

@@ -8,6 +8,7 @@ if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
 }
 
 if (isset($_POST['logout'])) {
+	session_unset();
     session_destroy(); // destroy all session data
 
 
@@ -28,11 +29,13 @@ if (isset($_POST['logout'])) {
 	
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="landing.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 </head>
 <body>
 	<header>
 		<div class="logo">
-			<img src="photos/logo.png" alt="Zakat Calculator Logo" loading="lazy">
+			<img src="photos/logo.svg" alt="Zakat Calculator Logo" loading="lazy">
 		</div>
 		<!-- navbar -->
 		<nav>

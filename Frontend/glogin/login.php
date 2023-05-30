@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $email = $_POST['email'];
           $password = $_POST['password'];
 
-          $query = "SELECT * FROM users WHERE email = '$email'";
+          $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
           $result = mysqli_query($con, $query); // assuming $connection is your database connection object
 
         if (mysqli_num_rows($result) > 0) {
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $clientID = '536728347311-lgdo8820guatd7ifipd63pelpjgn9pnv.apps.googleusercontent.com';
   $clientSecret = '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';
   // use your directory like this
-  $redirectUrl = 'http://localhost/482L/Zakat-Calculator-/Frontend/glogin/login.php';
+  $redirectUrl = 'http://localhost/Zakat-Calculator-/Frontend/glogin/login.php';
 
   // Creating client request to google
   $client = new Google_Client();
@@ -142,6 +142,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $name =$google_info->name;
   
   echo "Welcome ".$name." You're logged in using email:" .$email;
+
+  $_SESSION['loggedin'] = true;
+  $_SESSION['username'] = $name;
+
+  header('Location: profile.php');
 
   }
   else{

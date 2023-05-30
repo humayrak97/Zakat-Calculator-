@@ -51,7 +51,7 @@ if (isset($_POST['saveInfo'])){
 
 	<header>
 		<div class="logo">
-			<img src="photos/logo.png" alt="Zakat Calculator Logo">
+			<img src="photos/logo.svg" alt="Zakat Calculator Logo">
 		</div>
 			
 		<!-- navbar -->
