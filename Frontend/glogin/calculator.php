@@ -9,6 +9,7 @@ if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] === true) {
 }
 
 if (isset($_POST['logout'])) {
+	session_unset();
     session_destroy(); // destroy all session data
 
 	// Redirect to the login page
